@@ -21,14 +21,14 @@ h = sigmoid(X*theta);
 
 %sum (X -Y) = sum(X) - sum(Y)
 %sum(X .* Y) = X' * Y (X, Y are vectors)
-J = (1/m) * (-y'* log(h) - (1-y)'*log(1-h)) + (lambda/(2*m)*sum(theta(2:length(theta)).^2));
+J = (1/m) * (-y'* log(h) - (1-y)'*log(1-h)) + (lambda/(2*m)*sum(theta(2:end).^2));
 
 % shift_theta = theta(2:size(theta));
 % theta_reg = [0;shift_theta];
 
 % J = (1/m)*(-y'* log(h) - (1 - y)'*log(1-h))+(lambda/(2*m))*theta_reg'*theta_reg;
 
-%grad= (1/m) * sum((h - y).*X)';
+
 grad= (1/m) * X'*(h - y);
 
 regNum=(lambda/m)*theta;
